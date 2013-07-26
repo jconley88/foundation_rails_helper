@@ -113,6 +113,11 @@ module FoundationRailsHelper
       options.delete(:label_options)
       html += yield(options)
       html += error_and_hint(attribute, options)
+      @template.content_tag :div, class: 'row' do
+        @template.content_tag :div, class: 'columns' do
+          html
+        end
+      end
     end
   end
 end
